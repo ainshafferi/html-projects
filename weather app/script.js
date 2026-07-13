@@ -4,6 +4,36 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
+const weatherBg = document.querySelector(".card");
+
+const http = new XMLHttpRequest();
+const result = document.querySelector("#output")
+
+document.querySelector("#locationBtn").addEventListener(
+    "click", () => {
+        findMyCoordinates()
+    }
+)
+
+function findMyCoordinates() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition
+            ((position) => {
+                const bdcAPI = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`
+                getAPI(bdcAPI)
+            })
+    } else {
+        alert("not supported")
+    }
+}
+
+async function getAPI(bdcAPI) {
+    const response = await fetch(bdcAPI);
+    const results = await response.json();
+
+    console.log(results.city);
+    checkWeather(results.city)
+}
 
 async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -20,20 +50,25 @@ async function checkWeather(city) {
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
         document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
+        weatherIcon.src = `images/${data.weather[0].main}.png`;
+
         if (data.weather[0].main == "Clouds") {
-            weatherIcon.src = "images/clouds.png";
+            weatherBg.style.background = "linear-gradient(135deg, #757F9A, #D7DDE8)";
         }
         else if (data.weather[0].main == "Clear") {
-            weatherIcon.src = "images/clear.png";
+            weatherBg.style.background = "linear-gradient(135deg, #56CCF2, #2F80ED)";
         }
         else if (data.weather[0].main == "Rain") {
-            weatherIcon.src = "images/rain.png";
+            weatherBg.style.background = "linear-gradient(135deg, #232526, #414345)";
         }
         else if (data.weather[0].main == "Drizzle") {
-            weatherIcon.src = "images/drizzle.png";
+            weatherBg.style.background = "linear-gradient(135deg, #4B79A1, #283E51)";
         }
         else if (data.weather[0].main == "Mist") {
-            weatherIcon.src = "images/mist.png";
+            weatherBg.style.background = "linear-gradient(135deg, #BDC3C7, #2C3E50)";
+        }
+        else if (data.weather[0].main == "Snow") {
+            weatherBg.style.background = "linear-gradient(135deg, #E6DADA, #274046)";
         }
 
         document.querySelector(".weather").style.display = "block";

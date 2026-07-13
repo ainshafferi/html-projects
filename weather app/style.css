@@ -6,15 +6,21 @@
 }
 
 body {
-    background: #222;
+    background: #000000;
+}
+
+.header {
+    text-align: center;
+    color: #fff;
+    margin-top: 30px;
 }
 
 .card {
     width: 90%;
     max-width: 470px;
-    background: linear-gradient(135deg, #640519, #5b548a);
+    background: linear-gradient(135deg, #56CCF2, #2F80ED);
     color: #fff;
-    margin: 100px auto 0;
+    margin: 30px auto 0;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
@@ -33,7 +39,7 @@ body {
     background: #ebfffc;
     color: #555;
     padding: 10px 25px;
-    height: 60 px;
+    height: 50 px;
     border-radius: 30px;
     flex: 1;
     margin-right: 16px;
@@ -95,9 +101,9 @@ body {
     margin-top: -5px;
 }
 
-.weather {
+/* .weather {
     display: none;
-}
+} */
 
 .error {
     text-align: left;
