@@ -1,6 +1,8 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const addBtn = document.getElementById("addBtn")
+const toggle = document.getElementById("themeToggle")
+const darkMode = document.querySelector(".container");
 
 function addTask() {
     if (inputBox.value == '') {
@@ -43,5 +45,26 @@ inputBox.addEventListener("keydown", (event) => {
     }
 });
 
+toggle.addEventListener("change", () => {
+    darkMode.classList.toggle("dark-mode");
+    if (toggle.checked) {
+        saveTheme("dark");
+    } else {
+        saveTheme("light");
+    }
+});
 
+function saveTheme(theme) {
+    localStorage.setItem("theme", theme);
+}
+
+function loadTheme() {
+    const theme = localStorage.getItem("theme");
+
+    if (theme === "dark") {
+        darkMode.classList.add("dark-mode");
+        toggle.checked = true;
+    }
+}
 showtask();
+loadTheme();

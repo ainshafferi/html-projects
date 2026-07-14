@@ -8,7 +8,7 @@
 .container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #153677, #4e085f);
+    background: linear-gradient(135deg, #edeef0, #640519);
     padding: 10px;
 }
 
@@ -22,11 +22,36 @@
 }
 
 .todo-app h2 {
-    color: #002765;
+    color: #640519;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
+
+.container.dark-mode {
+    width: 100%;
+    min-height: 100vh;
+    background: #020403;
+    padding: 10px;
+}
+
+
+.container.dark-mode .todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: linear-gradient(135deg, #76454f, #020403);
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.container.dark-mode .todo-app h2 {
+    color: #edeef0;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 
 .todo-app h2 img {
     width: 30px;
@@ -48,7 +73,7 @@ input {
     border: none;
     outline: none;
     background: transparent;
-    padding: 10px;
+    padding: 14px;
     font-weight: 14px;
 
 }
@@ -56,18 +81,30 @@ input {
 button {
     border: none;
     outline: none;
-    padding: 16px 50px;
-    background: #ff5945;
+    padding: 10px 30px;
+    background: #640519;
     color: #fff;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 30px;
+    margin-right: 4px;
 }
 
 ul li {
     list-style: none;
     font-size: 17px;
-    padding: 12px 8px 12px 50px;
+    color: #640519;
+    padding: 12px 8px 10px 40px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.container.dark-mode ul li {
+    list-style: none;
+    font-size: 17px;
+    color: #edeef0;
+    padding: 12px 8px 12px 40px;
     user-select: none;
     cursor: pointer;
     position: relative;
@@ -76,8 +113,8 @@ ul li {
 ul li::before {
     content: '';
     position: absolute;
-    height: 28px;
-    width: 28px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     background-image: url(images/unchecked.png);
     background-size: cover;
@@ -92,7 +129,7 @@ ul li.checked {
 }
 
 ul li.checked::before {
-    background-image: url(images/checked.png);
+    background-image: url(images/checked1.png);
 }
 
 ul li span {
@@ -110,4 +147,56 @@ ul li span {
 
 ul li span:hover {
     background: #edeef0;
+}
+
+.mode {
+    position: fixed;
+    display: flex;
+    right: 20px;
+    top: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    right: 0;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 34px;
+    transition: .3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 4px;
+    bottom: 3px;
+    background: #fff;
+    background-image: url("images/mode-toggle.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+input:checked+.slider {
+    background: #640519;
+}
+
+input:checked+.slider::before {
+    transform: translateX(17px);
 }
