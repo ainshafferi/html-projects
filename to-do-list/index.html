@@ -16,14 +16,29 @@
                 <span class="slider round"></span>
             </label>
         </div>
-        <div class="todo-app">
-            <h2>To-Do List <img src="images/icon.png"></h2>
-            <div class="row">
-                <input type="text" id="input-box" placeholder="Add your text">
-                <button id="addBtn" onclick="addTask()">Add</button>
+        <div class="col">
+            <div class="todo-app">
+                <h2>To-Do List</h2>
+                <div class="row-todo">
+                    <input type="text" id="input-list" placeholder="Add your text">
+                    <!-- <input type="datetime-local" id="due-date">/ -->
+                    <button id="addBtn" onclick="addTask()">Add</button>
+                </div>
+                <ul id="list-container">
+                </ul>
             </div>
-            <ul id="list-container">
-            </ul>
+            <div class="notes-app">
+                <div class="row-notes">
+                    <h2>Notes</h2>
+                    <button class="createBtn">Create</button>
+                </div>
+                <div class="notes-container">
+                    <!-- <div class="note">
+                        <p contenteditable></p>
+                        <span>×</span>
+                    </div> -->
+                </div>
+            </div>
         </div>
     </div>
 

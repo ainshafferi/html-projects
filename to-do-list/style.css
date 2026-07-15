@@ -12,143 +12,6 @@
     padding: 10px;
 }
 
-.todo-app {
-    width: 100%;
-    max-width: 540px;
-    background: #fff;
-    margin: 100px auto 20px;
-    padding: 40px 30px 70px;
-    border-radius: 10px;
-}
-
-.todo-app h2 {
-    color: #640519;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.container.dark-mode {
-    width: 100%;
-    min-height: 100vh;
-    background: #020403;
-    padding: 10px;
-}
-
-
-.container.dark-mode .todo-app {
-    width: 100%;
-    max-width: 540px;
-    background: linear-gradient(135deg, #76454f, #020403);
-    margin: 100px auto 20px;
-    padding: 40px 30px 70px;
-    border-radius: 10px;
-}
-
-.container.dark-mode .todo-app h2 {
-    color: #edeef0;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-
-.todo-app h2 img {
-    width: 30px;
-    margin-left: 10px;
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #edeef0;
-    border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
-}
-
-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 14px;
-    font-weight: 14px;
-
-}
-
-button {
-    border: none;
-    outline: none;
-    padding: 10px 30px;
-    background: #640519;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 30px;
-    margin-right: 4px;
-}
-
-ul li {
-    list-style: none;
-    font-size: 17px;
-    color: #640519;
-    padding: 12px 8px 10px 40px;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
-}
-
-.container.dark-mode ul li {
-    list-style: none;
-    font-size: 17px;
-    color: #edeef0;
-    padding: 12px 8px 12px 40px;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
-}
-
-ul li::before {
-    content: '';
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-image: url(images/unchecked.png);
-    background-size: cover;
-    background-position: center;
-    top: 12px;
-    left: 8px;
-}
-
-ul li.checked {
-    color: #555;
-    text-decoration: line-through;
-}
-
-ul li.checked::before {
-    background-image: url(images/checked1.png);
-}
-
-ul li span {
-    position: absolute;
-    right: 0;
-    top: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-    color: #555;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 50%;
-}
-
-ul li span:hover {
-    background: #edeef0;
-}
-
 .mode {
     position: fixed;
     display: flex;
@@ -199,4 +62,225 @@ input:checked+.slider {
 
 input:checked+.slider::before {
     transform: translateX(17px);
+}
+
+.col {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+}
+
+@media (max-width:800px) {
+
+    .col {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .todo-app,
+    .notes-app {
+        width: 100%;
+        max-width: 700px;
+    }
+
+}
+
+.todo-app {
+    flex: 1;
+    min-width: 350px;
+    max-width: 500px;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+}
+
+.todo-app h2 {
+    color: #640519;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.notes-app {
+    flex: 1.4;
+    min-width: 350px;
+    max-width: 700px;
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+}
+
+.notes-app h2 {
+    color: #640519;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.row-notes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.container.dark-mode {
+    /* background: #121212; */
+    background: linear-gradient(135deg, #341b21, #121212);
+}
+
+.container.dark-mode .todo-app,
+.container.dark-mode .notes-app {
+    background: #555;
+}
+
+.container.dark-mode .todo-app h2,
+.container.dark-mode .notes-app h2 {
+    color: #fff;
+}
+
+.row-todo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 14px;
+    font-weight: 14px;
+
+}
+
+.row-todo button {
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    background: #640519;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-right: 4px;
+}
+
+.row-notes button {
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    background: #640519;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-right: 4px;
+}
+
+ul li {
+    list-style: none;
+    font-size: 14px;
+    color: #640519;
+    padding: 12px 8px 10px 40px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.container.dark-mode ul li {
+    color: #fff;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url(images/checked1.png);
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover {
+    background: #edeef0;
+}
+
+.note {
+    position: relative;
+    background: #edeef0;
+    min-height: 70px;
+    color: #555;
+    padding: 15px;
+    margin: 20px 0;
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-box {
+    width: 100%;
+    min-height: 40px;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.container.dark-mode .note {
+    background: #524545;
+    color: #edeef0;
+}
+
+.delete-note {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #555;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.delete-note:hover {
+    background: #fff;
 }

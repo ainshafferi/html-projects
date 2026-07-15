@@ -17,4 +17,5 @@ This weather app was inspired by the GreatStack tutorial and built using HTML, C
 - Uses dynamic weather icons.
 - Organized JavaScript into a separate file for better maintainability.
 
-
+### 3) To-do List + Notes App 
+/currently working/
